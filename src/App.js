@@ -1,15 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
+import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import MyButton from "./ByButton";
+
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up  to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <MyButton/>
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <Text>Open up to start working on your app!</Text>
+            <StatusBar style="auto"/>
+            <MyButton title="my button 1" onPress={() => alert('Clicked 1!')}/>
+            <MyButton title="my button 2" onPress={() => alert('Clicked 2!')}/>
+
+            {/*이 친구의 태그 사이의 값을 이용하기 위해서는 자식 객체에서 children이라는 걸 사용해야한다.*/}
+            <MyButton>Children</MyButton>
+            {/*  아래 버튼을 보면 children props가 우선시 되고 있다. 당연히 앞에 먼저 썼으니.  */}
+            <MyButton title="my button 3" onPress={() => alert('Clicked 3!')}>Button3</MyButton>
+            {/*Default값을 사용한 친구.*/}
+            <MyButton/>
+
+            {/*default prop을 벗어나는 친구.*/}
+            {/*Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `MyButton`, expected `string`.*/}
+            <MyButton title={'3'}/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
