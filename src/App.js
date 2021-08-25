@@ -2,6 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import MyButton from "./ByButton";
+import {TextInput} from "react-native";
 
 export default function App() {
     const [addition, setAddition] = useState(0)
@@ -25,6 +26,11 @@ export default function App() {
             {/*default prop을 벗어나는 친구.*/}
             {/*Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `MyButton`, expected `string`.*/}
             <MyButton title={'3'}/>
+
+            <TextInput onChangeText={text => console.log(text)}
+                       // onChange={event => console.log(event.nativeEvent)}
+                       style={{borderWidth:1, padding: 10, fontSize: 20}}
+            />
         </View>
     );
 }
