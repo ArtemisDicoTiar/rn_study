@@ -1,15 +1,19 @@
 import {StatusBar} from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import MyButton from "./ByButton";
 
 export default function App() {
+    const [addition, setAddition] = useState(0)
+    const [multiple, setMultiple] = useState(1)
     return (
         <View style={styles.container}>
-            <Text>Open up to start working on your app!</Text>
+
             <StatusBar style="auto"/>
-            <MyButton title="my button 1" onPress={() => alert('Clicked 1!')}/>
-            <MyButton title="my button 2" onPress={() => alert('Clicked 2!')}/>
+            <Text>{addition}</Text>
+            <MyButton title="add" onPress={() => setAddition(addition + 2)}/>
+            <Text>{multiple}</Text>
+            <MyButton title="mult" onPress={() => setMultiple(multiple * 2)}/>
 
             {/*이 친구의 태그 사이의 값을 이용하기 위해서는 자식 객체에서 children이라는 걸 사용해야한다.*/}
             <MyButton>Children</MyButton>
