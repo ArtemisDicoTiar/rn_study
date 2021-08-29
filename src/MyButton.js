@@ -13,7 +13,7 @@ const MyButton = ({title, onPress, children}) => {
         // 버튼 호출순
         // in      out press
         // in long out
-        <TouchableOpacity onPress={() => console.log('press')}
+        <TouchableOpacity onPress={() => onPress()}
                           onPressIn={() => console.log('in')}
                           onPressOut={() => console.log('out')}
                           onLongPress={() => console.log('long')}
