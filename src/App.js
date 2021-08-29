@@ -15,6 +15,22 @@ export default function App() {
             <Box style={{backgroundColor: 'red', flex: 1}}/>
             <Box style={{backgroundColor: 'green', flex: 8}}/>
             <Box style={{backgroundColor: 'blue', flex: 1}}/>
+            {/* justifyContent는 정렬방향과 동일, alignItems는 수직. */}
+            {/* justifyContent:
+            flex-start: 시작에 정렬,
+            flex-end: 끝에 정렬,
+            center: 중앙 정렬,
+            space-between: 각 컴포넌트 사이의 공간을 동일하게 유지,
+            space-around: 각 컴포넌트 그리고 그 주변 공간까지 동일하게 유지,
+            space-evenly: 각 컴포넌트 사이 + 시작 과 끝 컴포넌트 앞뒤로의 공간까지를 동일하게 유지 */}
+            {/* alignItems:
+            flex-start: 시작에 맞춰 정렬
+            flex-end: 끝에 맞춰 정렬
+            center: 중앙 정렬
+            stretch: 컴포넌트를 늘려 위아래(좌우)를 맞춤
+            baseline: 텍스트 베이스라인에 맞춰 정렬
+            */}
+
         </View>
     );
 }
