@@ -9,7 +9,7 @@ export default function App() {
     const [multiple, setMultiple] = useState(1)
     return (
         <View style={styles.container}>
-
+            <Text style={styles.errorText}>React-Native Study</Text>
             <StatusBar style="auto"/>
             <Text>{addition}</Text>
             <MyButton title="add" onPress={() => setAddition(addition + 2)}/>
@@ -36,10 +36,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    errorText: {
+        backgroundColor: 'black',
+        color: 'red',
+        fontSize: 20
+    }
+
 });
