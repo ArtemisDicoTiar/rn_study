@@ -5,12 +5,14 @@ import MyButton from "./MyButton";
 import {styles} from "./style";
 import {Box} from "./Box";
 import Shadow from "./Shadow";
-import styled from "styled-components/native";
+import styled, {ThemeProvider} from "styled-components/native";
 import {css} from "styled-components";
+import Input from "./Input";
+import {Switch} from "react-native";
 
 const Container = styled.View`
     flex: 1;
-    background-color: #e21;
+    background-color: ${({theme}) => theme.bgColor};
     align-items: center;
     justify-content: center;
 `
@@ -22,7 +24,7 @@ const cssText = css`
 
 // 이렇게 CSS를 불러올수도 있고
 const StyledText = styled.Text`
-  ${cssText}
+  ${cssText};
   color: blue;
 `
 
@@ -33,14 +35,30 @@ const ErrorText = styled(StyledText)`
 
 const StyledButton = styled.Button``
 
+const lightTheme = {
+    inputColor: '#111111',
+    inputBorder: '#111111',
+    bgColor: '#e3e3e3',
+}
+
+const darkTheme = {
+    inputColor: '#e3e3e3',
+    inputBorder: '#e3e3e3',
+    bgColor: '#111111',
+}
+
 export default function App() {
+    const [isLight, toggleTheme] = useState(true);
     return (
-        <Container>
-            <StatusBar style="auto"/>
-            <StyledText>Styled Components</StyledText>
-            <StyledButton title="styled button" onPress={() => alert('HELLO!')}/>
-            <ErrorText>This is Error Text</ErrorText>
-        </Container>
+        <ThemeProvider theme={isLight ? lightTheme: darkTheme}>
+            <Container >
+                <Switch
+                    value={isLight}
+                    onValueChange={isLight => toggleTheme(isLight)}
+                />
+                <Input placeholder='Enter a message...'/>
+            </Container>
+        </ThemeProvider>
     );
 }
 
