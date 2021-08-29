@@ -9,7 +9,9 @@ export default function App() {
     const [multiple, setMultiple] = useState(1)
     return (
         <View style={styles.container}>
-            <Text style={styles.errorText}>React-Native Study</Text>
+            {/* 아래처럼 스타일을 배열로 여러개 적용시 중복되는 값이 있다면 뒤에 있는 친구가 앞에 있는 변수값을 오버라이트한다.*/}
+            {/* 스타일 시트를 사용하지 않고 인라인으로 적어도 된다. */}
+            <Text style={[styles.text, styles.errorText, {fontSize: 50}]}>React-Native Study</Text>
             <StatusBar style="auto"/>
             <Text>{addition}</Text>
             <MyButton title="add" onPress={() => setAddition(addition + 2)}/>
@@ -42,10 +44,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    errorText: {
+    text: {
         backgroundColor: 'black',
         color: 'red',
         fontSize: 20
-    }
-
+    },
+    errorText: {
+        color: 'red',
+    },
 });
